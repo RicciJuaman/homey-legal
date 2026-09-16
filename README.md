@@ -39,9 +39,13 @@ Two deliberate differences in `privacy.html`: the source file's "must be filled
 in before publishing" list is a note to the developer rather than policy, so it
 is not published, and its deletion-page placeholder resolves to a real link.
 
-## Still to do
+## Who runs it
 
-`privacy.html` carries a marked placeholder for the operator's legal name and
-country of residence. It must be replaced with the real name before the app is
-submitted to any store — a policy that does not say who is responsible for the
-data is not a policy.
+Ricci Juaman, an individual in Australia. That is stated in `privacy.html`
+because a policy that does not say who is responsible for the data is not a
+policy, and it must match the developer account the app is published under.
+
+Worth a look from someone qualified before submission: the operator is in
+Australia and the data is in Japan, which makes it an overseas disclosure under
+the Australian Privacy Principles. This repository does not attempt to settle
+that question.
