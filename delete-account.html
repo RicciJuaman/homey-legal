@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Delete your Homey account</title>
+    <meta
+      name="description"
+      content="How to delete your Homey account and everything in it, from inside the app or by asking here."
+    />
+    <!--
+      The web half of account deletion. Google Play requires two routes for any
+      app that lets people create an account: one inside the app, and one on a
+      web page reachable without installing it — which is the only route left
+      to somebody who has already uninstalled Homey, or who never got past the
+      sign-in screen.
+
+      This page is deliberately a single file with no build step, no scripts
+      and no fonts to fetch. It is published from /docs alongside PRIVACY.md,
+      and the URL goes in the Play Console's Data deletion field. A page that
+      needed compiling is a page that eventually stops being published.
+
+      The palette is Homey's own, from src/components/theme.ts, so that
+      somebody arriving from the store listing can see they are in the right
+      place.
+    -->
+    <style>
+      :root {
+        --paper: #f6f0e6;
+        --paper-raised: #fffcf5;
+        --ink: #231d18;
+        --ink-soft: #6b5d52;
+        --rule: #dcd0bc;
+        --danger: #9b2c1e;
+        --display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+        --body:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px 22px 96px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      main {
+        max-width: 34rem;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        font-family: var(--display);
+        letter-spacing: -0.4px;
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin: 0 0 0.25rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        margin: 2.5rem 0 0.75rem;
+      }
+
+      .lede {
+        color: var(--ink-soft);
+        margin: 0 0 2rem;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid var(--rule);
+        margin: 2.5rem 0;
+      }
+
+      ol,
+      ul {
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        color: var(--ink);
+        text-underline-offset: 3px;
+      }
+
+      .warn {
+        border-left: 3px solid var(--danger);
+        padding-left: 16px;
+        margin: 1.5rem 0;
+      }
+
+      .warn strong {
+        color: var(--danger);
+      }
+
+      .mail {
+        display: inline-block;
+        font-weight: 700;
+        border: 1.5px solid var(--danger);
+        color: var(--danger);
+        border-radius: 10px;
+        padding: 14px 22px;
+        text-decoration: none;
+        margin-top: 0.5rem;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1rem 0;
+        font-size: 16px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        vertical-align: top;
+        padding: 10px 12px 10px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      th {
+        font-weight: 700;
+      }
+
+      footer {
+        margin-top: 3rem;
+        color: var(--ink-soft);
+        font-size: 15px;
+      }
+
+      code {
+        font-size: 0.95em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Delete your Homey account</h1>
+      <p class="lede">
+        Homey is a shared household app — a shopping list, a family calendar, a dinner plan and
+        saved recipes. This page explains how to delete your account and everything held under it,
+        whether or not you still have the app installed.
+      </p>
+
+      <hr />
+
+      <h2>If you still have the app</h2>
+      <p>This is the quickest route, and it takes effect immediately.</p>
+      <ol>
+        <li>Open Homey and sign in.</li>
+        <li>Tap your name or initial in the top corner to open <strong>You</strong>.</li>
+        <li>
+          Scroll to <strong>Delete your account</strong> and tap <strong>Delete account</strong>.
+        </li>
+        <li>
+          Read the warning. It names every household that will be destroyed and says how many other
+          people will lose it.
+        </li>
+        <li>Confirm. Your account and its data are deleted straight away.</li>
+      </ol>
+
+      <h2>If you no longer have the app</h2>
+      <p>
+        Email us from the address you signed up with, so we can be sure the request is yours. Write
+        nothing else — we do not need a reason.
+      </p>
+
+      <p>
+        <a
+          class="mail"
+          href="mailto:juamandudz1590@gmail.com?subject=Delete%20my%20Homey%20account&amp;body=Please%20delete%20the%20Homey%20account%20registered%20to%20this%20email%20address%2C%20and%20all%20data%20held%20under%20it."
+          >Email a deletion request</a
+        >
+      </p>
+
+      <p>
+        Or write to <a href="mailto:juamandudz1590@gmail.com">juamandudz1590@gmail.com</a> with the
+        subject <strong>Delete my Homey account</strong>. We will confirm and complete it within 30
+        days, and usually much sooner.
+      </p>
+
+      <hr />
+
+      <h2>What happens to your household</h2>
+
+      <div class="warn">
+        <p>
+          <strong>A household you are the only keyholder of is deleted along with you.</strong>
+          Everything in it goes permanently, for everyone in it: the shopping list and its items,
+          the calendar, the dinner plan and the saved recipes. This cannot be undone and there is no
+          grace period.
+        </p>
+      </div>
+
+      <p>
+        A household nobody owns could never be renamed, handed on or cleared up again, so Homey does
+        not leave one standing. If you want a household to outlive your account, make somebody else
+        a keyholder before you delete it — then the household stays exactly as it is, and only your
+        name leaves it.
+      </p>
+
+      <p>
+        Where a household does survive, the things you added stay on it. An item you put on the
+        shopping list is still there for the people still shopping; it simply stops saying it was
+        you who added it.
+      </p>
+
+      <h2>What is deleted</h2>
+
+      <table>
+        <tr>
+          <th>Your account</th>
+          <td>Email address, password hash and sign-in — deleted outright.</td>
+        </tr>
+        <tr>
+          <th>Your profile</th>
+          <td>Display name and avatar — deleted outright.</td>
+        </tr>
+        <tr>
+          <th>Your memberships</th>
+          <td>Every record of which households you belonged to — deleted outright.</td>
+        </tr>
+        <tr>
+          <th>Households you solely owned</th>
+          <td>
+            The household and all of its lists, items, calendar entries, dinners and recipes —
+            deleted outright.
+          </td>
+        </tr>
+        <tr>
+          <th>Households that survive you</th>
+          <td>
+            Kept, because they belong to the people still in them. What you added stays; your name
+            is removed from it.
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Nothing is retained after deletion for Homey's own purposes. There are no adverts, no
+        analytics and no third-party tracking in the app, so there is no profile of you held
+        anywhere else to delete. Ordinary encrypted database backups may hold a copy for up to 30
+        days before they age out; they are never read except to recover from failure.
+      </p>
+
+      <hr />
+
+      <footer>
+        <p>
+          Homey · <a href="privacy.html">Privacy policy</a> ·
+          <a href="mailto:juamandudz1590@gmail.com">juamandudz1590@gmail.com</a>
+        </p>
+        <p>
+          Data is held in Supabase (PostgreSQL) in <code>ap-northeast-1</code>, Tokyo, Japan. If you
+          have the right to see, correct or export your data before deleting it, ask at the address
+          above and we will answer within 30 days.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Homey — Privacy Policy</title>
+    <meta
+      name="description"
+      content="What Homey collects, who can see it, where it is stored, and how to have it deleted."
+    />
+    <!--
+      Published from the homey-legal repository so that it has a public URL.
+      The source of truth for the wording is docs/PRIVACY.md in the private
+      homey-home repository; if you change one, change the other.
+
+      Two differences from that file, both deliberate:
+        - its "two things must be filled in" list is a note to the developer,
+          not policy, so it is not published here
+        - the deletion-page placeholder resolves to delete-account.html
+    -->
+    <style>
+      :root {
+        --paper: #f6f0e6;
+        --paper-raised: #fffcf5;
+        --ink: #231d18;
+        --ink-soft: #6b5d52;
+        --rule: #dcd0bc;
+        --danger: #9b2c1e;
+        --display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+        --body:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px 22px 96px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      main {
+        max-width: 34rem;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        font-family: var(--display);
+        letter-spacing: -0.4px;
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin: 0 0 0.25rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        margin: 2.5rem 0 0.75rem;
+      }
+
+      h3 {
+        font-family: var(--body);
+        font-size: 1rem;
+        margin: 1.75rem 0 0.5rem;
+      }
+
+      .lede {
+        color: var(--ink-soft);
+        margin: 0 0 2rem;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid var(--rule);
+        margin: 2.5rem 0;
+      }
+
+      ul {
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        color: var(--ink);
+        text-underline-offset: 3px;
+      }
+
+      .warn {
+        border-left: 3px solid var(--danger);
+        padding-left: 16px;
+        margin: 1.5rem 0;
+      }
+
+      .warn strong {
+        color: var(--danger);
+      }
+
+      .todo {
+        background: var(--paper-raised);
+        border: 1.5px dashed var(--danger);
+        border-radius: 10px;
+        padding: 14px 18px;
+        color: var(--danger);
+        font-weight: 700;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1rem 0;
+        font-size: 16px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        vertical-align: top;
+        padding: 10px 12px 10px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      thead th {
+        font-weight: 700;
+        border-bottom: 1.5px solid var(--rule);
+      }
+
+      tbody th {
+        font-weight: 400;
+      }
+
+      footer {
+        margin-top: 3rem;
+        color: var(--ink-soft);
+        font-size: 15px;
+      }
+
+      code {
+        font-size: 0.95em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Homey — Privacy Policy</h1>
+      <p class="lede">Last updated: 16 September 2026</p>
+
+      <h2>The short version</h2>
+      <p>
+        Homey holds what a household puts on its shopping list, what is on the family calendar, what
+        is planned for dinner, the recipes it has saved, and the names of the people involved. It
+        shows no adverts, contains no third-party analytics, and sells nothing to anyone.
+      </p>
+      <p>
+        <strong>Homey is for adults.</strong> Everyone who uses it holds their own account, created
+        with their own email address. There are no accounts for children, no way for an adult to
+        create an account on somebody else's behalf, and nothing in the app is directed at children.
+      </p>
+
+      <hr />
+
+      <h2>What is collected</h2>
+
+      <h3>When you create an account</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Why</th>
+            <th>Where it lives</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Email address</th>
+            <td>To sign in and recover the account</td>
+            <td>Supabase Auth</td>
+          </tr>
+          <tr>
+            <th>Password</th>
+            <td>To sign in; stored only as a hash</td>
+            <td>Supabase Auth</td>
+          </tr>
+          <tr>
+            <th>Display name</th>
+            <td>So the household can tell who added what</td>
+            <td><code>profiles.display_name</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>From the household itself</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Household name and its 8-character join code</th>
+            <td>To let people join the right house</td>
+          </tr>
+          <tr>
+            <th>Shopping items: what, how much, who added it, who ticked it off, when</th>
+            <td>The shopping list</td>
+          </tr>
+          <tr>
+            <th>Calendar entries: what is happening, when, an optional note, who added it</th>
+            <td>The family calendar</td>
+          </tr>
+          <tr>
+            <th>Dinners: the date, the meal, the ingredients written for it, who wrote it</th>
+            <td>The weekly dinner plan</td>
+          </tr>
+          <tr>
+            <th>Recipes: the title, the link it came from, ingredients and method</th>
+            <td>The recipe importer</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        All of it is typed or pasted by the household. None of it is inferred, bought, or brought in
+        from anywhere else, with one exception: when you paste a recipe link, the server fetches
+        that page to read the ingredients off it. It saves nothing until you say so, and the page is
+        one you chose.
+      </p>
+
+      <h2>What is not collected</h2>
+      <ul>
+        <li>No advertising identifiers, and no adverts</li>
+        <li>No third-party analytics or tracking SDKs</li>
+        <li>No location data</li>
+        <li>
+          No contacts, camera, microphone or photo access — the app requests none of these
+          permissions. The only permission it asks for is internet access.
+        </li>
+        <li>Nothing from children, because children have no accounts</li>
+      </ul>
+
+      <h2>Who can see what</h2>
+      <p>
+        Only members of your own household, and this is enforced by the database rather than by the
+        app hiding buttons. A request for another household's data returns nothing, even when it is
+        made directly against the API with a valid account.
+      </p>
+      <p>
+        Members of a household see everything in it: the shopping list, the calendar, the dinner
+        plan, the saved recipes, and the member list.
+      </p>
+      <p>
+        <strong>Nobody else.</strong> Homey has no public profiles, no sharing outside a household,
+        and no way to look up a person.
+      </p>
+
+      <h2>Where data is stored</h2>
+      <p>
+        Supabase (PostgreSQL), in <code>ap-northeast-1</code> (Tokyo, Japan). Supabase acts as a
+        data processor; see <a href="https://supabase.com/privacy">supabase.com/privacy</a>. Data
+        travels between your devices and Supabase over an encrypted connection, including the live
+        updates that make a change on one phone appear on another.
+      </p>
+
+      <h2>How long it is kept</h2>
+      <ul>
+        <li>
+          <strong>Shopping items</strong> stay until someone removes them, or until the finished
+          shop is cleared.
+        </li>
+        <li>
+          <strong>Calendar entries, dinners and recipes</strong> stay until someone in the household
+          changes or removes them.
+        </li>
+        <li>
+          <strong>Deleting a household</strong> deletes its lists, items, calendar, dinners and
+          recipes with it.
+        </li>
+      </ul>
+
+      <h2>Deleting your account</h2>
+      <p>
+        In the app, open <strong>You</strong> from the top corner and choose
+        <strong>Delete account</strong>. Your account, your display name and your sign-in go
+        straight away; there is no grace period and no undo. If you no longer have the app
+        installed, ask at <a href="delete-account.html">our account deletion page</a>, or write to
+        <a href="mailto:juamandudz1590@gmail.com">juamandudz1590@gmail.com</a> from the address you
+        signed up with, and it will be done within 30 days.
+      </p>
+
+      <div class="warn">
+        <p>
+          <strong>A household is deleted along with its last keyholder.</strong> If you are the only
+          keyholder of a household, deleting your account permanently deletes that household for
+          everyone in it — its shopping list, calendar, dinners and recipes. The app names every
+          household this affects, and says how many other people lose it, before you confirm.
+        </p>
+      </div>
+
+      <p>
+        A household nobody owns could never be renamed, handed on or cleared up again, which is why
+        one is not left standing; to keep a household, make somebody else a keyholder first. Where a
+        household survives, what you added to it stays and simply loses your name — the shopping
+        still belongs to the people still shopping.
+      </p>
+
+      <p>
+        Ordinary encrypted database backups may hold a copy of deleted data for up to 30 days before
+        they age out. They are never read except to recover from failure.
+      </p>
+
+      <h2>Security</h2>
+      <ul>
+        <li>
+          Every table is protected by row-level security, written so that the database refuses the
+          request rather than trusting the app to ask nicely. There is a test suite of 39 assertions
+          whose only job is to prove those rules hold.
+        </li>
+        <li>Passwords are handled by Supabase Auth and never stored in readable form.</li>
+        <li>
+          Attribution — who added an item, who ticked it off — is stamped by the database from your
+          session, never accepted from the app.
+        </li>
+        <li>
+          The key that can bypass these rules exists only on the server, and is never shipped inside
+          the app.
+        </li>
+      </ul>
+
+      <h2>Your rights</h2>
+      <p>
+        Depending on where you live you may have the right to see, correct, export or delete your
+        data, and to withdraw consent. Write to
+        <a href="mailto:juamandudz1590@gmail.com">juamandudz1590@gmail.com</a> and we will respond
+        within 30 days.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If this policy changes in a way that affects what is collected or who can see it, the app
+        will say so before the change takes effect.
+      </p>
+
+      <h2>Contact</h2>
+      <p class="todo">
+        [YOUR FULL LEGAL NAME], [COUNTRY OF RESIDENCE] — this must be replaced with the real name
+        and country before the app is submitted to any store.
+      </p>
+      <p><a href="mailto:juamandudz1590@gmail.com">juamandudz1590@gmail.com</a></p>
+
+      <hr />
+
+      <footer>
+        <p>Homey · <a href="delete-account.html">Delete your account</a> · <a href=".">Index</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
