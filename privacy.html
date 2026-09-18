@@ -147,7 +147,7 @@
   <body>
     <main>
       <h1>Homey — Privacy Policy</h1>
-      <p class="lede">Last updated: 16 September 2026</p>
+      <p class="lede">Last updated: 19 September 2026</p>
 
       <h2>The short version</h2>
       <p>
@@ -253,11 +253,66 @@
         <li>No location data</li>
         <li>
           No contacts, camera, microphone or photo access — the app requests
-          none of these permissions. The only permission it asks for is internet
-          access.
+          none of these permissions, and contains no code that could use them.
         </li>
         <li>Nothing from children, because children have no accounts</li>
       </ul>
+
+      <h2>What the app asks Android for</h2>
+      <p>
+        Homey itself asks for one permission: internet access, without which it
+        does nothing. The installed app carries six more that were declared by
+        the Expo libraries it is built on rather than by Homey. They are listed
+        here because the store listing shows them and nobody should have to
+        guess why.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Why it is there</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Internet</th>
+            <td>The whole app: every list, date and recipe lives on the server</td>
+          </tr>
+          <tr>
+            <th>View network connections</th>
+            <td><code>expo-updates</code>, to tell whether it can reach the update server</td>
+          </tr>
+          <tr>
+            <th>Read and modify storage</th>
+            <td>
+              <code>expo-file-system</code>. Capped at Android 12L, so on
+              Android 13 and newer they do nothing at all
+            </td>
+          </tr>
+          <tr>
+            <th>Vibrate</th>
+            <td>Haptic feedback</td>
+          </tr>
+          <tr>
+            <th>Display over other apps</th>
+            <td>Declared by a library, not by Homey, which never draws over another app</td>
+          </tr>
+          <tr>
+            <th>A receiver permission named after the app's own id</th>
+            <td>Internal to AndroidX. No other app can hold it</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        None of these collect anything. Homey has no code that reads your files,
+        your location, your contacts, your camera or your microphone, and none
+        of the permissions above give it a quiet way to start.
+      </p>
+      <p>
+        This list was read off the merged manifest of an actual release build
+        rather than off the source, because a library can add a permission to an
+        app without its author writing a line.
+      </p>
 
       <h2>Who can see what</h2>
       <p>
