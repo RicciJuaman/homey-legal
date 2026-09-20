@@ -147,7 +147,7 @@
   <body>
     <main>
       <h1>Homey — Privacy Policy</h1>
-      <p class="lede">Last updated: 19 September 2026</p>
+      <p class="lede">Last updated: 20 September 2026</p>
 
       <h2>The short version</h2>
       <p>
@@ -217,8 +217,8 @@
           </tr>
           <tr>
             <th>
-              Calendar entries: what is happening, when, an optional note, who
-              added it
+              Calendar entries: what is happening, when, where, an optional
+              note, who added it
             </th>
             <td>The family calendar</td>
           </tr>
@@ -240,17 +240,38 @@
 
       <p>
         All of it is typed or pasted by the household. None of it is inferred,
-        bought, or brought in from anywhere else, with one exception: when you
-        paste a recipe link, the server fetches that page to read the
-        ingredients off it. It saves nothing until you say so, and the page is
-        one you chose.
+        bought, or brought in from anywhere else, with two exceptions, and both
+        of them start with something you did:
       </p>
+      <ul>
+        <li>
+          <strong>When you paste a recipe link</strong>, the server fetches that
+          page to read the ingredients off it. It saves nothing until you say
+          so, and the page is one you chose.
+        </li>
+        <li>
+          <strong>When you type where a calendar entry is</strong>, the server
+          asks Google Places to suggest the rest of the address, and sends it
+          what you have typed so far to do it. Nothing is sent until you have
+          typed three characters, nothing is sent while you are still typing,
+          and nothing is saved unless you pick a suggestion or write the place
+          out yourself. The field is optional, and places this household has
+          used before are offered without asking anybody.
+        </li>
+      </ul>
 
       <h2>What is not collected</h2>
       <ul>
         <li>No advertising identifiers, and no adverts</li>
         <li>No third-party analytics or tracking SDKs</li>
-        <li>No location data</li>
+        <li>
+          <strong>No device location.</strong> The app never reads GPS or
+          network location, asks for no location permission, and could not find
+          you if it wanted to. What it does hold is the odd address somebody has
+          typed into a calendar entry themselves — “the Harpers’”, or a street
+          address picked from a suggestion — stored exactly as it was written
+          and treated like any other thing this household typed.
+        </li>
         <li>
           No contacts, camera, microphone or photo access — the app requests
           none of these permissions, and contains no code that could use them.
@@ -338,6 +359,16 @@
         travels between your devices and Supabase over an encrypted connection,
         including the live updates that make a change on one phone appear on
         another.
+      </p>
+      <p>
+        Nothing is stored anywhere else. One service is reached without storing
+        anything: <strong>Google Places</strong>, which is asked to complete an
+        address while it is being typed, and answers with suggestions. It is
+        sent the characters typed into that one field and nothing else — no
+        account, no household, no name, and none of the other things on the
+        calendar. The request is made by our server rather than by your phone,
+        so Google is not handed your device's address either. See
+        <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
       </p>
 
       <h2>How long it is kept</h2>
