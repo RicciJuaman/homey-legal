@@ -17,8 +17,8 @@
   <main>
     <div class="brand">Homey</div>
     <h1 id="title">Finish signing in to Homey</h1>
-    <p id="message">Return to Homey and sign in with your email and password. You can also enter the confirmation code from your email in the app.</p>
-    <a class="open" href="homey://">Open Homey</a>
+    <p id="message">Return to Homey and sign in with your email and password. If your email includes a confirmation code, you can also enter it in the app.</p>
+    <a id="open" class="open" href="homey://">Open Homey</a>
     <p id="help">If a link has expired, request a new confirmation email from the sign-in screen. If you opened this on another device, return to the device with Homey installed.</p>
     <footer><a href="privacy.html">Privacy policy</a> · <a href="delete-account.html">Account deletion</a></footer>
   </main>
@@ -29,10 +29,17 @@
     const query = new URLSearchParams(location.search);
     const failed = parameters.has('error') || parameters.has('error_code') || query.has('error') || query.has('error_code');
     const confirmed = parameters.has('access_token') && parameters.get('type') !== 'recovery';
+    const recovery = parameters.get('type') === 'recovery' && parameters.has('access_token') && parameters.has('refresh_token');
     history.replaceState(null, '', location.pathname);
     if (failed) {
       document.getElementById('title').textContent = 'Try a new confirmation email';
       document.getElementById('message').textContent = 'This link has expired or could not be verified. Open Homey, sign in, then request another confirmation email.';
+    } else if (recovery) {
+      document.getElementById('title').textContent = 'Choose a new password in Homey';
+      document.getElementById('message').textContent = 'Open Homey on this device to finish resetting your password.';
+      const handoff = new URLSearchParams({access_token: parameters.get('access_token'), refresh_token: parameters.get('refresh_token'), type: 'recovery'});
+      document.getElementById('open').href = 'homey://auth-callback#' + handoff.toString();
+      document.getElementById('help').textContent = 'If Homey is not installed on this device, request a new reset email on the device where you use the app.';
     } else if (confirmed) {
       document.getElementById('title').textContent = 'Your email is confirmed';
       document.getElementById('message').textContent = 'You can return to Homey and sign in with your email and password.';
