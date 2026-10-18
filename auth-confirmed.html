@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>Homey · Email confirmation</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f6f0e6;color:#231d18;font-family:system-ui,sans-serif;line-height:1.6}
+    main{max-width:34rem;margin:10vh auto;padding:2rem 1.5rem}.brand{font:bold 1.25rem Georgia,serif;border-bottom:1px solid #dcd0bc;padding-bottom:1rem}
+    h1{font:2.5rem/1.15 Georgia,serif;margin-top:2rem}p{color:#6b5d52}a{color:#231d18}.open{display:block;padding:.9rem 1.2rem;background:#231d18;color:#f6f0e6;border-radius:.6rem;text-align:center;text-decoration:none;margin:2rem 0}
+    a:focus-visible{outline:3px solid #25557a;outline-offset:4px}footer{border-top:1px solid #dcd0bc;margin-top:3rem;padding-top:1rem;font-size:.85rem}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">Homey</div>
+    <h1 id="title">Finish signing in to Homey</h1>
+    <p id="message">Return to Homey and sign in with your email and password. You can also enter the confirmation code from your email in the app.</p>
+    <a class="open" href="homey://">Open Homey</a>
+    <p id="help">If a link has expired, request a new confirmation email from the sign-in screen. If you opened this on another device, return to the device with Homey installed.</p>
+    <footer><a href="privacy.html">Privacy policy</a> · <a href="delete-account.html">Account deletion</a></footer>
+  </main>
+  <script>
+    // No network requests, analytics or browser storage. Remove credentials
+    // from the address bar before the user follows any link on this page.
+    const parameters = new URLSearchParams(location.hash.slice(1));
+    const query = new URLSearchParams(location.search);
+    const failed = parameters.has('error') || parameters.has('error_code') || query.has('error') || query.has('error_code');
+    const confirmed = parameters.has('access_token') && parameters.get('type') !== 'recovery';
+    history.replaceState(null, '', location.pathname);
+    if (failed) {
+      document.getElementById('title').textContent = 'Try a new confirmation email';
+      document.getElementById('message').textContent = 'This link has expired or could not be verified. Open Homey, sign in, then request another confirmation email.';
+    } else if (confirmed) {
+      document.getElementById('title').textContent = 'Your email is confirmed';
+      document.getElementById('message').textContent = 'You can return to Homey and sign in with your email and password.';
+    }
+  </script>
+</body>
+</html>
